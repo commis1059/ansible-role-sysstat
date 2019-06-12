@@ -1,0 +1,4 @@
+---
+sysstat:
+  interval: 5
+  summary_minute: 57
