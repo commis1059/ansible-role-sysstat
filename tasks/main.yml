@@ -17,6 +17,13 @@
       {{ sysstat.summary_minute }} 23 * * * root /usr/lib64/sa/sa2 -A
   become: yes
 
+- name: Set sadc option
+  replace:
+    path: /etc/sysconfig/sysstat
+    regexp: "^SADC_OPTIONS=.*"
+    replace: 'SADC_OPTIONS="-S DISK -S SNMP"'
+  become: yes
+
 - name: Enable sysstat
   service:
     name: sysstat
